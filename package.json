@@ -1,0 +1,23 @@
+{
+  "name": "nodejs-utilities",
+  "version": "1.0.0",
+  "description": "Utility functions and classes",
+  "main": "index.js",
+  "typings": "types/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RichardDorian/nodejs-utilities.git"
+  },
+  "keywords": [
+    "utilities"
+  ],
+  "author": "RichardDorian",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RichardDorian/nodejs-utilities/issues"
+  },
+  "homepage": "https://github.com/RichardDorian/nodejs-utilities#readme"
+}
