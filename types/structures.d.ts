@@ -1,4 +1,4 @@
-declare module 'nodejs-utilities/structures' {
+declare module 'nodejs-vitals/structures' {
   export class Queue<T = any> {
     /** Number of items currently waiting in the queue */
     public length: number;

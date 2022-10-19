@@ -1,4 +1,4 @@
-declare module 'nodejs-utilities/algorithms' {
+declare module 'nodejs-vitals/algorithms' {
   /**
    * In computer science, binary search, also known as half-interval
    * search, logarithmic search, or binary chop, is a search algorithm

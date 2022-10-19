@@ -1,5 +1,5 @@
 {
-  "name": "nodejs-utilities",
+  "name": "nodejs-vitals",
   "version": "1.0.0",
   "description": "Utility functions and classes",
   "main": "index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RichardDorian/nodejs-utilities.git"
+    "url": "git+https://github.com/RichardDorian/nodejs-vitals.git"
   },
   "keywords": [
     "utilities"
@@ -17,7 +17,7 @@
   "author": "RichardDorian",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/RichardDorian/nodejs-utilities/issues"
+    "url": "https://github.com/RichardDorian/nodejs-vitals/issues"
   },
-  "homepage": "https://github.com/RichardDorian/nodejs-utilities#readme"
+  "homepage": "https://github.com/RichardDorian/nodejs-vitals#readme"
 }

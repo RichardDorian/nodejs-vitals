@@ -2,9 +2,9 @@
 /// <reference path="errors.d.ts" />
 /// <reference path="structures.d.ts" />
 
-declare module 'nodejs-utilities' {
-  import * as err from 'nodejs-utilities/errors';
+declare module 'nodejs-vitals' {
+  import * as err from 'nodejs-vitals/errors';
   export const errors = err;
-  export * from 'nodejs-utilities/algorithms';
-  export * from 'nodejs-utilities/structures';
+  export * from 'nodejs-vitals/algorithms';
+  export * from 'nodejs-vitals/structures';
 }
