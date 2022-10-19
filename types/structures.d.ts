@@ -22,37 +22,37 @@ declare module 'nodejs-vitals/structures' {
      * // If you are using TypeScript you can use the type parameter to specify the type of the queue
      * const typedQueue = new Queue<string>();
      * ```
-     * @since `nodejs-utilities@1.0.0`
+     * @since `nodejs-vitals@1.0.0`
      */
     public constructor(maxSize?: number);
     /**
      * Push a value at the end of the queue
      * @param value Value to add to the queue
-     * @since `nodejs-utilities@1.0.0`
+     * @since `nodejs-vitals@1.0.0`
      */
     public enqueue(value: T): void;
     /**
      * Removes and returns the first item from the queue
      * @returns The item removed from the queue
-     * @since `nodejs-utilities@1.0.0`
+     * @since `nodejs-vitals@1.0.0`
      */
     public dequeue(): T;
     /**
      * Returns true if the queue is empty, false otherwise
      * @returns True if the queue is empty, false otherwise
-     * @since `nodejs-utilities@1.0.0`
+     * @since `nodejs-vitals@1.0.0`
      */
     public isEmpty(): boolean;
     /**
      * Returns true if the queue is full, false otherwise
      * @returns True if the queue is full, false otherwise
-     * @since `nodejs-utilities@1.0.0`
+     * @since `nodejs-vitals@1.0.0`
      */
     public isFull(): boolean;
   }
   /**
    * Node class for the Queue
-   * @since `nodejs-utilities@1.0.0`
+   * @since `nodejs-vitals@1.0.0`
    */
   export class QueueNode<T = any> {
     /** Value stored in the node */
@@ -62,13 +62,13 @@ declare module 'nodejs-vitals/structures' {
     /**
      * Instantiate a new QueueNode
      * @param value Value to store in the node
-     * @since `nodejs-utilities@1.0.0`
+     * @since `nodejs-vitals@1.0.0`
      */
     public constructor(value: T);
   }
   /**
    * Stack data structure
-   * @since `nodejs-utilities@1.0.0`
+   * @since `nodejs-vitals@1.0.0`
    */
   export class Stack<T = any> {
     /** Number of items currently in the stack */
@@ -90,44 +90,44 @@ declare module 'nodejs-vitals/structures' {
      *
      * // If you are using TypeScript you can use the type parameter to specify the type of the stack
      * const typedStack = new Queue<string>();
-     * @since `nodejs-utilities@1.0.0`
+     * @since `nodejs-vitals@1.0.0`
      * ```
      */
     public constructor(maxSize?: number);
     /**
      * Push a value at the top of the stack
      * @param value Value to push onto the stack
-     * @since `nodejs-utilities@1.0.0`
+     * @since `nodejs-vitals@1.0.0`
      */
     public push(value: T): void;
     /**
      * Removes and returns the top item from the stack
      * @returns The item removed from the stack
-     * @since `nodejs-utilities@1.0.0`
+     * @since `nodejs-vitals@1.0.0`
      */
     public pop(): T;
     /**
      * Returns the top item from the stack without removing it
      * @returns The top item from the stack
-     * @since `nodejs-utilities@1.0.0`
+     * @since `nodejs-vitals@1.0.0`
      */
     public peek(): T;
     /**
      * Returns true if the stack is empty, false otherwise
      * @returns True if the stack is empty, false otherwise
-     * @since `nodejs-utilities@1.0.0`
+     * @since `nodejs-vitals@1.0.0`
      */
     public isEmpty(): boolean;
     /**
      * Returns true if the stack is full, false otherwise
      * @returns True if the stack is full, false otherwise
-     * @since `nodejs-utilities@1.0.0`
+     * @since `nodejs-vitals@1.0.0`
      */
     public isFull(): boolean;
   }
   /**
    * Node class for the Stack
-   * @since `nodejs-utilities@1.0.0`
+   * @since `nodejs-vitals@1.0.0`
    */
   export class StackNode<T = any> {
     /** Value stored in the node */
@@ -137,7 +137,7 @@ declare module 'nodejs-vitals/structures' {
     /**
      * Instantiate a new StackNode
      * @param value Value to store in the node
-     * @since `nodejs-utilities@1.0.0`
+     * @since `nodejs-vitals@1.0.0`
      */
     public constructor(value: T);
   }

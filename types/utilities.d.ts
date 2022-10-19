@@ -11,7 +11,7 @@ declare module 'nodejs-vitals/utilities' {
    * generateRandomNumberE(0, 10); // 3
    * generateRandomNumberE(0, 10); // 6
    * ```
-   * @since `nodejs-utilities@1.0.1`
+   * @since `nodejs-vitals@1.0.1`
    */
   export function generateRandomNumberE(min: number, max: number): number;
   /**
@@ -26,7 +26,7 @@ declare module 'nodejs-vitals/utilities' {
    * generateRandomNumberI(0, 10); // 10
    * generateRandomNumberI(0, 10); // 5
    * ```
-   * @since `nodejs-utilities@1.0.1`
+   * @since `nodejs-vitals@1.0.1`
    */
   export function generateRandomNumberI(min: number, max: number): number;
   /**
@@ -34,7 +34,7 @@ declare module 'nodejs-vitals/utilities' {
    * file path synchronously
    * @param path A path to a file
    * @returns An object containing the parsed file
-   * @since `nodejs-utilities@1.0.1`
+   * @since `nodejs-vitals@1.0.1`
    */
   export function readJSONFileSync<T = any>(path: string): T;
   /**
@@ -42,7 +42,7 @@ declare module 'nodejs-vitals/utilities' {
    * file path asynchronously
    * @param path A path to a file
    * @returns An object containing the parsed file
-   * @since `nodejs-utilities@1.0.1`
+   * @since `nodejs-vitals@1.0.1`
    */
   export function readJSONFile<T = any>(path: string): Promise<T>;
   /**
@@ -61,7 +61,7 @@ declare module 'nodejs-vitals/utilities' {
    * await wait(10 * 1000);
    * console.log('Bar, printed 10 seconds after the first log')
    * ```
-   * @since `nodejs-utilities@1.0.1`
+   * @since `nodejs-vitals@1.0.1`
    */
   export function wait(ms: number): Promise<void>;
 }

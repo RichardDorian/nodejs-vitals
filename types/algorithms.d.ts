@@ -27,7 +27,7 @@ declare module 'nodejs-vitals/algorithms' {
    * binarySearch(arr, 'c'); // 2
    * binarySearch(arr, 'z'); // -1
    * ```
-   * @since `nodejs-utilities@1.0.0`
+   * @since `nodejs-vitals@1.0.0`
    */
   export function binarySearch<T = any>(array: T[], key: T): number;
   /**
@@ -50,7 +50,7 @@ declare module 'nodejs-vitals/algorithms' {
    * const arr = [ 'b', 'y', 'q', 'k' ];
    * selectionSort(arr); // [ 'b', 'k', 'q', 'y' ]
    * ```
-   * @since `nodejs-utilities@1.0.0`
+   * @since `nodejs-vitals@1.0.0`
    */
   export function selectionSort<T = any>(array: T[]): T[];
 }
