@@ -1,5 +1,60 @@
 declare module 'nodejs-vitals/utilities' {
   /**
+   * An intrinsic object that provides functions to
+   * read and parse environment variables
+   */
+  export const env: {
+    /**
+     * Gets the value of an environement variable
+     * @param variable Name of the environment variable
+     * @returns The value of the environment variable or
+     * `undefined` if the key doesn't exist
+     * @example
+     * ```javascript
+     * // On a linux platform
+     * env.getString('HOME'); // '/home/linus'
+     * env.getString('INEXISTANT_VARIABLE'); // undefined
+     * ```
+     * @since `nodejs-vitals@1.0.1`
+     */
+    getString(variable: string): string | undefined;
+    /**
+     * Gets the value of an environement variable and
+     * parses it as a number
+     * @param variable Name of the environment variable
+     * @returns The value of the environment variable or
+     * `undefined` if the key doesn't exist
+     * @example
+     * ```javascript
+     * // On a win32 platform
+     * env.getNumber('NUMBER_OF_PROCESSORS'); // 12
+     * env.getNumber('INEXISTANT_VARIABLE'); // undefined
+     * ```
+     * @since `nodejs-vitals@1.0.1`
+     */
+    getNumber(variable: string): number | undefined;
+    /**
+     * Gets the value of an environement variable and
+     * parses it as a JSON string
+     * @param variable Name of the environment variable
+     * @returns The value of the environment variable or
+     * `undefined` if the key doesn't exist or the value
+     * isn't a JSON string
+     * @example
+     * ```javascript
+     * env.getJSON('MY_JSON_STRING'); // { str: 'Hello World!', num: 45, bool: true }
+     * env.getJSON('INVALID_JSON_STRING'); // undefined
+     * env.getJSON('INEXISTANT_VARIABLE'); // undefined
+     * ```
+     * @example with TypeScript type parameters
+     * ```typescript
+     * env.getJSON<{ test: string }>('MY_JSON_STRING'); // { test: 'my super string' }
+     * ```
+     * @since `nodejs-vitals@1.0.1`
+     */
+    getJSON<T = any>(variable: string): T | undefined;
+  };
+  /**
    * Generates a pseudorandom number between
    * a min number (inclusive) and a max number (exclusive)
    * @param min The minimum number possible (inclusive)
