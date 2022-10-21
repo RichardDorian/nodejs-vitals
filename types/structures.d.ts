@@ -36,7 +36,7 @@ declare module 'nodejs-vitals/structures' {
      * @returns The item removed from the queue
      * @since `nodejs-vitals@1.0.0`
      */
-    public dequeue(): T;
+    public dequeue(): T | undefined;
     /**
      * Returns true if the queue is empty, false otherwise
      * @returns True if the queue is empty, false otherwise
@@ -58,7 +58,7 @@ declare module 'nodejs-vitals/structures' {
     /** Value stored in the node */
     public value: T;
     /** Next node in the queue */
-    public next: QueueNode<T>;
+    public next: QueueNode<T> | undefined;
     /**
      * Instantiate a new QueueNode
      * @param value Value to store in the node
@@ -102,16 +102,16 @@ declare module 'nodejs-vitals/structures' {
     public push(value: T): void;
     /**
      * Removes and returns the top item from the stack
-     * @returns The item removed from the stack
+     * @returns The item removed from the stack or `undefined` if empty
      * @since `nodejs-vitals@1.0.0`
      */
-    public pop(): T;
+    public pop(): T | undefined;
     /**
      * Returns the top item from the stack without removing it
-     * @returns The top item from the stack
+     * @returns The top item from the stack or `undefined` if empty
      * @since `nodejs-vitals@1.0.0`
      */
-    public peek(): T;
+    public peek(): T | undefined;
     /**
      * Returns true if the stack is empty, false otherwise
      * @returns True if the stack is empty, false otherwise
@@ -133,7 +133,7 @@ declare module 'nodejs-vitals/structures' {
     /** Value stored in the node */
     public value: T;
     /** Next node in the stack */
-    public next: StackNode<T>;
+    public next: StackNode<T> | undefined;
     /**
      * Instantiate a new StackNode
      * @param value Value to store in the node

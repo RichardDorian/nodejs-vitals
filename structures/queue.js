@@ -5,8 +5,8 @@ class Queue {
   #last;
 
   constructor(maxSize) {
-    this.#first = null;
-    this.#last = null;
+    this.#first;
+    this.#last;
     this.length = 0;
     this.maxSize = maxSize;
   }
@@ -28,10 +28,10 @@ class Queue {
   }
 
   dequeue() {
-    if (!this.#first) return null;
+    if (!this.#first) return;
 
     const value = this.#first.value;
-    this.#first = this.#first.next;
+    this.#first = this.#first?.next;
     this.length--;
 
     return value;
@@ -49,7 +49,6 @@ class Queue {
 class QueueNode {
   constructor(value) {
     this.value = value;
-    this.next = null;
   }
 }
 

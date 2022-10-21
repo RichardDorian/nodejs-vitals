@@ -4,7 +4,6 @@ class Stack {
   #first;
 
   constructor(maxSize) {
-    this.#first = null;
     this.length = 0;
     this.maxSize = maxSize;
   }
@@ -19,16 +18,16 @@ class Stack {
   }
 
   pop() {
-    if (!this.#first) return null;
+    if (!this.#first) return;
 
     const value = this.#first.value;
-    this.#first = this.#first.next;
+    this.#first = this.#first?.next;
     this.length--;
     return value;
   }
 
   peek() {
-    if (!this.#first) return null;
+    if (!this.#first) return;
     return this.#first.value;
   }
 
@@ -44,7 +43,6 @@ class Stack {
 class StackNode {
   constructor(value) {
     this.value = value;
-    this.next = null;
   }
 }
 
