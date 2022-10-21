@@ -1,5 +1,7 @@
 module.exports = {
-  errors: require('./errors'),
   ...require('./algorithms'),
+  errors: require('./errors'),
   ...require('./structures'),
+  ...require('./utilities'),
+  ...require('./validation'),
 };
