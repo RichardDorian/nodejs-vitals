@@ -15,7 +15,7 @@ declare module 'nodejs-vitals/utilities' {
      * env.getString('HOME'); // '/home/linus'
      * env.getString('INEXISTANT_VARIABLE'); // undefined
      * ```
-     * @since `nodejs-vitals@1.0.1`
+     * @since `nodejs-vitals@1.0.2`
      */
     getString(variable: string): string | undefined;
     /**
@@ -30,7 +30,7 @@ declare module 'nodejs-vitals/utilities' {
      * env.getNumber('NUMBER_OF_PROCESSORS'); // 12
      * env.getNumber('INEXISTANT_VARIABLE'); // undefined
      * ```
-     * @since `nodejs-vitals@1.0.1`
+     * @since `nodejs-vitals@1.0.2`
      */
     getNumber(variable: string): number | undefined;
     /**
@@ -50,7 +50,7 @@ declare module 'nodejs-vitals/utilities' {
      * ```typescript
      * env.getJSON<{ test: string }>('MY_JSON_STRING'); // { test: 'my super string' }
      * ```
-     * @since `nodejs-vitals@1.0.1`
+     * @since `nodejs-vitals@1.0.2`
      */
     getJSON<T = any>(variable: string): T | undefined;
   };
