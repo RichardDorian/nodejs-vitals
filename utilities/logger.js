@@ -1,5 +1,7 @@
 const validateInPrimitiveArray = require('../validation/validateInPrimitiveArray');
 const validatePrimitive = require('../validation/validatePrimitive');
+const validateObject = require('../validation/validateObject');
+const validateInstance = require('../validation/validateInstance');
 
 const OriginalLogMethods = Object.freeze({
   log: console.log,
@@ -9,13 +11,21 @@ const OriginalLogMethods = Object.freeze({
   error: console.error,
 });
 
+const LoggerOptionsValidationScheme = {
+  'group?': 'string',
+  'target?': ['string', 'node', 'broswer'],
+  'showMilliseconds?': 'boolean',
+  'color?': 'string',
+  'timeDelimiter?': 'string',
+};
+
 module.exports = class Logger {
   #options;
   #prefix;
 
   constructor(name = '', options = {}) {
     validatePrimitive(name, 'string', 'name');
-    // TODO: Validate options object
+    validateObject(options, LoggerOptionsValidationScheme, 'options');
 
     this.name = name;
     this.#options = options;
@@ -121,12 +131,7 @@ module.exports = class Logger {
       arg = new Logger(undefined, { target: arg });
     }
 
-    if (!(arg instanceof Logger))
-      throw new TypeError(
-        `The "logger" argument must be an instance of Logger. Received an instance of ${
-          Object.getPrototypeOf(arg).constructor.name
-        }`
-      );
+    validateInstance(arg, Logger, 'logger');
 
     for (const type of Object.keys(OriginalLogMethods))
       console[type] = (...args) => arg[type](...args);

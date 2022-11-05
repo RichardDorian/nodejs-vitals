@@ -282,7 +282,7 @@ declare module 'nodejs-vitals/utilities' {
      * ```
      * @since `nodejs-vitals@1.0.2`
      */
-    color?: string;
+    color?: string | Logger.Colors;
     /**
      * A string that will be added after
      * the time in the log. Defaults to `>`.

@@ -1,3 +1,5 @@
+/// <reference path="types.d.ts" />
+
 /// <reference path="algorithms.d.ts" />
 /// <reference path="errors.d.ts" />
 /// <reference path="maths.d.ts" />

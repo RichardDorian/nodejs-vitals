@@ -1,13 +1,4 @@
-type Types = {
-  bigint: bigint;
-  boolean: boolean;
-  function: Function;
-  number: number;
-  object: Object;
-  string: string;
-  symbol: Symbol;
-  undefined: undefined;
-};
+/// <reference path="types.d.ts" />
 
 declare module 'nodejs-vitals/validation' {
   /**
@@ -63,28 +54,6 @@ declare module 'nodejs-vitals/validation' {
   export function isPrimitive(value: unknown): value is keyof Types;
   /**
    * Throws an error if the type of given value does
-   * not match the name of the given primitive
-   * @param value Value to check
-   * @param type Name of the primitive
-   * @param argumentName Optional, the argument name, displayed in the error message
-   * @example
-   * ```javascript
-   * function add(a, b) {
-   *   validatePrimitive(a, 'number', 'a'); // Throws an error if a
-   *   validatePrimitive(b, 'number', 'b'); // or b is not a number
-   *
-   *   return a + b;
-   * }
-   * ```
-   * @since `nodejs-vitals@1.0.1`
-   */
-  export function validatePrimitive(
-    value: unknown,
-    type: keyof Types,
-    argumentName?: string
-  ): void;
-  /**
-   * Throws an error if the type of given value does
    * not match the name of the given primitive or if the
    * given value is not included in the given array.
    * @param value Value to check
@@ -109,6 +78,57 @@ declare module 'nodejs-vitals/validation' {
     array: Types[T][],
     argumentName?: string
   );
+  /**
+   * Throws an error if the type of the given value
+   * is not an instance of the given class.
+   * @param value Value to check
+   * @param constructor Constructor of the class to check
+   * @param argumentName Optional, the argument name, displayed in the error message
+   * @example
+   * ```javascript
+   * function urlToString(url) {
+   *   validateInstance(url, URL, 'url');
+   *   return url.toString();
+   * }
+   * ```
+   * @since `nodejs-vitals@1.0.3`
+   */
+  export function validateInstance(
+    value: unknown,
+    constructor: ConstructorResolvable,
+    argumentName?: string
+  ): void;
+  /**
+   * Throws an error if the given object doesn't
+   * match with the given scheme.
+   * @param object The object to check
+   * @param scheme The scheme to use
+   * @param objectName Optional, the argument name, displayed in the error message (defaults to `@`)
+   * @example
+   * ```javascript
+   * const loginCredentialsScheme = {
+   *   username: 'string', // Checks for a string
+   *   password: 'string',
+   *   'pinCode?': 'number', // Optional, checks for a number
+   *   'websiteUrl?': URL, // Optional, checks for an instance of URL,
+   *   'platform?': ['string', 'desktop', 'mobile'] // Optional, checks if the value is in the array of strings ['desktop', 'mobile']
+   * }
+   *
+   * function login(credentials) {
+   *    validateObject(credentials, loginCredentialsScheme, 'credentials');
+   *    // Rest of your code
+   * }
+   * ```
+   * @since `nodejs-vitals@1.0.3`
+   */
+  export function validateObject(
+    object: unknown,
+    scheme: ValidateObjectScheme,
+    objectName?: string
+  ): void;
+  export type ValidateObjectScheme = {
+    [key: string]: Primitives | [Primitives, any] | ValidateObjectScheme;
+  };
   /**
    * Throws an error if the type of given value does
    * not match the name of the given primitive
