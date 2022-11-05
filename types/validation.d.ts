@@ -83,4 +83,52 @@ declare module 'nodejs-vitals/validation' {
     type: keyof Types,
     argumentName?: string
   ): void;
+  /**
+   * Throws an error if the type of given value does
+   * not match the name of the given primitive or if the
+   * given value is not included in the given array.
+   * @param value Value to check
+   * @param type Name of the primitive
+   * @param array Array to check the value presence in
+   * @param argumentName Optional, the argument name, displayed in the error message
+   * @example
+   * ```javascript
+   * function add(mode) {
+   *   validateInPrimitiveArray(mode, 'string', ['node', 'bun', 'browser'], 'mode');
+   *   // Throws an error if "mode" isn't a string or
+   *   // if "mode" isn't (node or bun or browser)
+   *
+   *   return a + b;
+   * }
+   * ```
+   * @since `nodejs-vitals@1.0.2`
+   */
+  export function validateInPrimitiveArray<T extends keyof Types>(
+    value: unknown,
+    type: T,
+    array: Types[T][],
+    argumentName?: string
+  );
+  /**
+   * Throws an error if the type of given value does
+   * not match the name of the given primitive
+   * @param value Value to check
+   * @param type Name of the primitive
+   * @param argumentName Optional, the argument name, displayed in the error message
+   * @example
+   * ```javascript
+   * function add(a, b) {
+   *   validatePrimitive(a, 'number', 'a'); // Throws an error if a
+   *   validatePrimitive(b, 'number', 'b'); // or b is not a number
+   *
+   *   return a + b;
+   * }
+   * ```
+   * @since `nodejs-vitals@1.0.1`
+   */
+  export function validatePrimitive(
+    value: unknown,
+    type: keyof Types,
+    argumentName?: string
+  ): void;
 }

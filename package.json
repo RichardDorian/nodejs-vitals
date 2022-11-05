@@ -1,6 +1,6 @@
 {
   "name": "nodejs-vitals",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Utility functions and classes",
   "main": "index.js",
   "typings": "types/index.d.ts",
