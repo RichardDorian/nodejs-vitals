@@ -22,6 +22,11 @@ declare module 'nodejs-vitals/maths' {
    */
   export function radiansToDegrees(x: number): number;
   /**
+   * TODO
+   * @param array
+   */
+  export function average(...array: number[]): number;
+  /**
    * In arithmetic, Euclidean division – or division with remainder –
    * is the process of dividing one integer by another, in a way that
    * produces an integer quotient and a natural number remainder
@@ -68,4 +73,9 @@ declare module 'nodejs-vitals/maths' {
     | { discriminant: number }
     | { discriminant: number; x: number }
     | { discriminant: number; x0: number; x1: number };
+  /**
+   * TODO
+   * @param array
+   */
+  export function sum(...array: number[]): number;
 }

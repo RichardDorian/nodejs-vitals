@@ -84,6 +84,32 @@ declare module 'nodejs-vitals/utilities' {
    * @since `nodejs-vitals@1.0.1`
    */
   export function generateRandomNumberI(min: number, max: number): number;
+  /**
+   * Finds the closest color in the colors array to the
+   * color input.
+   *
+   * This function works by using the `RGB` values as `X` `Y` and `Z` coordinates.
+   * For each color in the colors array the distance between the wanted color
+   * and the list color is calculated. The color that has the smallest distance
+   * is considered the closest color.
+   * @param color The input color
+   * @param colors List containing the available colors
+   * @returns The closest color found in the array
+   * @example
+   * ```javascript
+   * const available = [
+   *   [88, 102, 17],
+   *   [56, 168, 86],
+   *   [212, 136, 133]
+   * ]
+   * getClosestColor([50, 168, 82], available); // [56, 168, 86]
+   * ```
+   * @since `nodejs-vitals@1.0.3`
+   */
+  export function getClosestColor(
+    color: [number, number, number],
+    colors: [number, number, number][]
+  ): [number, number, number];
   export class Logger {
     /**
      * Name of this logger, the name is showed in the log
@@ -299,6 +325,25 @@ declare module 'nodejs-vitals/utilities' {
     timeDelimiter?: string;
   }
   /**
+   * Parses the given text input as a JSONC string
+   * @param text A valid JSONC string.
+   * @param reviver A function that transforms the results. This function is called for each member of the object. (passed to the `JSON.parse` call)
+   * @example
+   * ```javascript
+   * // Using the parseJSONC function
+   * const rawConfig = fs.readFileSync('config.jsonc');
+   * const config = parseJSONC(rawConfig);
+   *
+   * // Using the Node Require
+   * const config = require('config.jsonc');
+   * ```
+   * @since `nodejs-vitals@1.0.3`
+   */
+  export function parseJSONC<T = any>(
+    text: string,
+    reviver?: (this: any, key: string, value: any) => any
+  ): T;
+  /**
    * Reads and parses as JSON the given
    * file path synchronously
    * @param path A path to a file
@@ -314,6 +359,38 @@ declare module 'nodejs-vitals/utilities' {
    * @since `nodejs-vitals@1.0.1`
    */
   export function readJSONFile<T = any>(path: string): Promise<T>;
+  /**
+   * A decorator that makes any class
+   * field a readonly field.
+   * @example
+   * ```javascript
+   * class Car {
+   *   \@Readonly // Without the `\`
+   *   utility = 'drive'
+   * }
+   *
+   * const tesla = new Car();
+   * tesla.utility = 'fly'; // TypeError: Cannot assign to read only property 'utility' of object '#<Object>'
+   * ```
+   * @since `nodejs-vitals@1.0.3`
+   */
+  export const Readonly: PropertyDecorator;
+  /**
+   * A decorator that seals a class
+   * @example
+   * ```javascript
+   * \@Seal // Without the `\`
+   * class Car {
+   *   constructor(brand) {
+   *     this.brand = brand;
+   *   }
+   * }
+   *
+   * const teslaX = new Car('Tesla');
+   * teslaX.model = 'X'; // TypeError: Cannot add property model, object is not extensible
+   * ```
+   */
+  export const Seal: ClassDecorator;
   /**
    * Wait the given amount of time
    * @param ms Time to wait, in milliseconds

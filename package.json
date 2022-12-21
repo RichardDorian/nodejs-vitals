@@ -3,7 +3,7 @@
   "version": "1.0.3",
   "description": "Utility functions and classes",
   "main": "index.js",
-  "typings": "types/index.d.ts",
+  "types": "types/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

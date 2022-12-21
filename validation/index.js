@@ -5,4 +5,5 @@ module.exports = {
   validateInstance: require('./validateInstance'),
   validateObject: require('./validateObject'),
   validatePrimitive: require('./validatePrimitive'),
+  validatePrimitiveArray: require('./validatePrimitiveArray'),
 };
